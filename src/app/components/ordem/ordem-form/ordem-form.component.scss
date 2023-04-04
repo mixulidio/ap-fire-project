@@ -1,0 +1,37 @@
+::ng-deep .p-datepicker table td {
+  padding: 0.2rem !important;
+}
+
+::ng-deep .p-datepicker table td > span {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+::ng-deep .p-datepicker table {
+  font-size: 10pt;
+  margin: -0.143rem 0;
+}
+
+::ng-deep .p-datepicker .p-datepicker-header {
+  padding: 0.2rem;
+  background: white;
+}
+
+::ng-deep .p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {
+  padding: 0.2rem;
+  background: white;
+}
+
+
+
+// ::ng-deep {
+//   .p-selectbutton .p-button.p-highlight {
+//     background: red;
+//     background-color: red;
+//   }
+
+//   .p-selectbutton .p-button.p-highlight:hover {
+//     background: green;
+//   }
+// }
+

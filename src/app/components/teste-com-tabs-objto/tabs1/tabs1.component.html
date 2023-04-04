@@ -1,0 +1,13 @@
+<p-tabView>
+  <p-tabPanel header="Header 1">
+     <app-tab01 [(obj)]="obj"></app-tab01>
+  </p-tabPanel>
+  <p-tabPanel header="Header 2">
+    <app-tab01 [(obj)]="obj"></app-tab01>
+  </p-tabPanel>
+  <p-tabPanel header="Header 3">
+    <app-tab01 [(obj)]="obj"></app-tab01>
+  </p-tabPanel>
+</p-tabView>
+
+<input type="text" *ngIf="obj" [(ngModel)]="obj.nome" >

@@ -17,7 +17,7 @@ export class PessoaService {
 
   obterTodos(): Observable<Pessoa[]> {
     return this.http
-        .get<Pessoa[]>(this.UrlServiceV1 + "pessoas")
-       // .pipe(catchError(super.serviceError));
-}
+      .get<Pessoa[]>(this.UrlServiceV1 + "pessoas")
+    // .pipe(catchError(super.serviceError));
+  }
 }

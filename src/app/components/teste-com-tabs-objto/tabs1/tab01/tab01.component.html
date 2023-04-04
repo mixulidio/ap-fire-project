@@ -1,0 +1,25 @@
+<p>tab01 works!</p>
+<input type="text" *ngIf="obj" [(ngModel)]="obj.nome" (ngModelChange)="onValorChanged($event)">
+
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submeter()"
+  [style]="{width: '24rem'}" class="">
+
+    <div class="field mt-1">
+    </div>
+
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <input pInputText class="p-inputtext-sm" id="nome" formControlName="nome"
+        >
+        <label for="nome">nome</label>
+      </span>
+    </div>
+    <div class="field mt-4">
+      <span class="p-float-label">
+      </span>
+    </div>
+
+
+    <button type="submit" pButton pRipple>Salvar</button>
+</form>
+

@@ -4,6 +4,84 @@ Consultar id
 salvar
 Editar
 
+<form [formGroup]="form" class="flex justify-content-center">
+  <p-card [style]="{width: '35rem'}" styleClass="p-card-shadow" >
+    <div class="field">
+        <label class="block" for="firstname1">Nome</label>
+        <input class="w-full" formControlName="nome" id="firstname1" type="text" pInputText>
+    </div>
+    <div class="field">
+        <label class="block" for="cpf">CPF</label>
+        <input formControlName="cpf" id="cpf" type="text"
+        pInputText >
+    </div>
+    <div class="field">
+        <label class="block" for="rg">RG</label>
+        <input formControlName="rg" id="rg" type="text"
+        pInputText >
+    </div>
+    <div class="field">
+        <label class="block" for="dataNascimento">dataNascimento</label>
+        <p-inputMask formControlName="dataNascimento" id="dataNascimento"  mask="99/99/9999"
+           placeholder="dd/mm/yyyy"
+           ></p-inputMask>
+    </div>
+    <div class="field">
+        <label class="block" for="email">email</label>
+        <input formControlName="email" id="email" type="text" class="w-full"
+        pInputText >
+    </div>
+    <div formGroupName="endereco">
+      <div class="field">
+          <label class="block" for="cep">cep</label>
+          <input formControlName="cep" id="cep" type="text"
+          pInputText >
+      </div>
+      <div class="field">
+          <label class="block" for="logradouro">logradouro</label>
+          <input formControlName="logradouro" id="logradouro" type="text" class="w-full"
+          pInputText >
+      </div>
+      <div class="field">
+          <label class="block" for="numero">numero</label>
+          <input formControlName="numero" id="numero" type="text"
+          pInputText >
+      </div>
+      <div class="field">
+          <label class="block" for="complemento">complemento</label>
+          <input formControlName="complemento" id="complemento" type="text"
+          pInputText >
+      </div>
+    </div>
+    <div class="field">
+        <label class="block" for="estadoCivil">estadoCivil</label>
+        <input formControlName="estadoCivil" id="estadoCivil" type="text"
+        pInputText >
+    </div>
+    <div class="field">
+        <label class="block" for="profissao">profissao</label>
+        <input formControlName="profissao" id="profissao" type="text"
+        pInputText >
+    </div>
+    <div class="field">
+        <label class="block" for="dtInicial">dtInicial</label>
+        <p-inputMask formControlName="dtInicial" id="dtInicial"  mask="99/99/9999"
+           placeholder="dd/mm/yyyy"
+        ></p-inputMask>
+    </div>
+    <div class="field">
+        <label class="block" for="dtFinal">dtFinal</label>
+        <p-inputMask formControlName="dtFinal" id="dtFinal"  mask="99/99/9999" [ngClass]="{'ng-invalid': form.errors?.['dateRangeValid'] } "
+        placeholder="dd/mm/yyyy"
+        ></p-inputMask>
+    </div>
+  </p-card>
 
-<p-button (onClick)="handleClick()" styleClass="p-button-sm p-button-raised mr-2" label="Something" icon="pi pi-upload">
-</p-button>
+
+
+  <p-button (onClick)="handleClick()" styleClass="p-button-sm p-button-raised mr-2" label="Something" icon="pi pi-upload"></p-button>
+
+</form>
+
+{{ form.valid }}
+{{ form.errors?.['dateRangeValid'] }}

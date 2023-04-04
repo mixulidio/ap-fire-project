@@ -1,0 +1,43 @@
+<p>tabs2 Componente pai</p>
+
+<p-tabView>
+  <p-tabPanel header="Header 1">
+    <app-tab2-pessoa [(obj)]="obj"></app-tab2-pessoa>
+  </p-tabPanel>
+  <p-tabPanel header="Header 2">
+    <app-tab2-pessoa [(obj)]="obj"></app-tab2-pessoa>
+
+    <!-- <app-tab2-endereco [obj]="obj"></app-tab2-endereco> -->
+  </p-tabPanel>
+  <p-tabPanel header="Header 3">
+
+  </p-tabPanel>
+</p-tabView>
+
+<!-- <input type="text" *ngIf="obj" [(ngModel)]="obe" (ngModelChange)="evento($event)"> -->
+
+<!-- botão se salvar fica fora. -->
+<button pButton pRipple (click)="click()">Salvar</button>
+
+<!-- validação fica em cada aba no seu form, pode ter umaa var para informar que está invalido -->
+
+<p>tab2-pessoa Pai 0</p>
+
+<!-- <input type="text" *ngIf="obj" [(ngModel)]="obj.nome" (ngModelChange)="onValorChanged($event)"> -->
+
+<!-- (ngSubmit)="submeter()" -->
+<form autocomplete="off" [formGroup]="form1"
+  [style]="{width: '24rem'}" class="">
+
+    <div class="field mt-1">
+    </div>
+
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <input pInputText class="p-inputtext-sm" id="nome" formControlName="nome"
+        >
+        <label for="nome">nome</label>
+      </span>
+    </div>
+</form>
+

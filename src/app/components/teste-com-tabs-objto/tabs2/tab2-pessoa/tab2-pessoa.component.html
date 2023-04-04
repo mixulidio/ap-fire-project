@@ -1,0 +1,31 @@
+<p>tab2-pessoa Filho 1!</p>
+
+<!-- <input type="text" *ngIf="obj" [(ngModel)]="obj.nome" (ngModelChange)="onValorChanged($event)"> -->
+
+<!-- (ngSubmit)="submeter()" -->
+<form autocomplete="off" [formGroup]="form"
+  [style]="{width: '24rem'}" class="">
+
+    <div class="field mt-1">
+    </div>
+
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <input pInputText class="p-inputtext-sm" id="nome" formControlName="nome"
+        >
+        <label for="nome">nome</label>
+      </span>
+    </div>
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <!-- <input pInputText class="p-inputtext-sm" id="sobrenome" formControlName="sobrenome"
+        >
+        <label for="sobrenome">sobrenome</label> -->
+      </span>
+    </div>
+
+    <button pButton pRipple (click)="alteraD()">Salvar</button>
+
+
+</form>
+

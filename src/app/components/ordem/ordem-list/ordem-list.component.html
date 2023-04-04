@@ -1,0 +1,63 @@
+<p-confirmDialog header="Confirmação" icon="pi pi-exclamation-triangle"
+acceptLabel="Sim" rejectLabel="Nâo"></p-confirmDialog>
+
+<p-table #dt1 [value]="list" selectionMode="single" [(selection)]="selected"
+    [tableStyle]="{'min-width': '23rem'}"
+    responsiveLayout="stack" [breakpoint]="'96px'"
+    [paginator]="true" [rows]="10" [showCurrentPageReport]="false" currentPageReportTemplate="{first} até {last} de {totalRecords}" [rowsPerPageOptions]="[10,25,50]"
+    [globalFilterFields]="['ticker','quantidade','valor','operacao', 'data']"
+    >
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      Ordens
+      <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder=""
+            style="margin-right: 10px;" />
+          <button pButton pRipple icon="pi pi-trash" class="p-button-danger custom-button-sm" style="margin-right: 10px;"
+            (click)="excluirOrdem()" [disabled]="!selected"></button>
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-info custom-button-sm"
+            [disabled]="!selected" (click)="editar()">
+          </button>
+      </span>
+    </div>
+
+    <!-- <div class="flex align-items-center justify-content-between">
+      Ordens
+      <button pButton pRipple icon="pi pi-trash" class="p-button-danger custom-button-sm" (click)="excluirOrdem()"
+        [disabled]="!selected"></button>
+    </div> -->
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of cols" [pSortableColumn]="col.field" [pSortableColumnDisabled]="!col.sort ? true : false">
+        {{col.header}}
+        <p-sortIcon styleClass="pi-over" *ngIf="col.sort" [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+    <tr [pSelectableRow]="item">
+      <td *ngFor="let col of cols">
+        <span *ngIf="!col.type">
+          {{item[col.field] }}
+        </span>
+        <span *ngIf="col.type == 'date'">
+          {{item[col.field] | date : col.format }}
+        </span>
+        <span *ngIf="col.type == 'currency'">
+          {{item[col.field] | currency }}
+        </span>
+        <span *ngIf="col.type == 'enumToDesc'">
+          {{item[col.field] | enumToDesc : col.enum }}
+        </span>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <div class="flex align-items-center justify-content-between">
+        Total {{list ? list.length : 0 }}
+    </div>
+</ng-template>
+</p-table>
+

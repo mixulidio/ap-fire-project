@@ -1,0 +1,45 @@
+:host {
+  ::ng-deep .p-card .p-card-body {
+    padding: 0.5rem;
+  }
+
+  // head
+  ::ng-deep .p-datatable .p-datatable-thead>tr>th {
+    text-align: left;
+    padding: 0.4rem 0.4rem 0.4rem 0.1rem;
+    border: 1px solid #dee2e6;
+    border-width: 1px 0 2px 0;
+    font-weight: 100;
+    font-size: 0.7rem;
+    color: #212529;
+    transition: box-shadow 0.15s;
+  }
+
+  ::ng-deep .p-datatable .p-datatable-header {
+    background: #efefef;
+    color: #212529;
+    border: solid #dee2e6;
+    border-width: 1px 0 0 0;
+    padding: 0.4rem 0.4rem;
+    font-weight: 600;
+  }
+
+  // body
+  ::ng-deep .p-datatable .p-datatable-tbody>tr>td {
+    text-align: left;
+    border: 1px solid #dee2e6;
+    border-width: 1px 0 0 0;
+    padding: 0.4rem 0.4rem 0.4rem 0.1rem;
+  }
+
+  ::ng-deep .p-component {
+    font-size: small;
+    font-weight: normal;
+  }
+
+  //icone
+
+  ::ng-deep .pi {
+    font-size: 0.6rem;
+  }
+}

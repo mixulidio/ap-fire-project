@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+
+<p-toast></p-toast>
+
+<p-card [style]="{width: '25rem'}" styleClass="" class="flex justify-content-center">
+  <p-progressBar [mode]="mode" [value]="value" [showValue]="false"
+    ></p-progressBar>
+
+  <app-menu-basic></app-menu-basic>
+  <router-outlet></router-outlet>
+
+</p-card>

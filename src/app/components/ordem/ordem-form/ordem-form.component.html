@@ -1,0 +1,93 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="submeter()"
+  [style]="{width: '24rem'}" class="">
+
+    <div class="field mt-1">
+      <p-selectButton [options]="operacoes" formControlName="operacao" optionLabel="label" optionValue="value" class="p-button-primary p-button-danger">
+      </p-selectButton>
+    </div>
+
+    <div class="field mt-4">
+      <span >
+        <p-calendar formControlName="data" #data dateFormat="dd/mm/yy" placeholder="Data dd/mm/aaaa"
+          [showIcon]="true" id="data" inputId="data"
+          class="p-inputtext-sm" [ngClass]="{'ng-invalid': form.controls.data.invalid && form.controls.data.touched } ">
+        </p-calendar>
+      </span>
+    </div>
+    <div class="field mt-4">
+      <div class="row">
+        <div class="col-sm-6">
+      <span class="p-float-label">
+        <p-autoComplete formControlName="ticker" [suggestions]="tickerSuggestions" [inputStyle]="{'text-transform': 'uppercase'}"
+          (onBlur)="blurAtivo()" (completeMethod)="filterCountry($event)"  (onSelect)="onSelectAutocomplete($event)"></p-autoComplete>
+         <!-- field="stock" -->
+        <!-- <input pInputText type="text"  id="ticker" formControlName="ticker" oninput="this.value = this.value.toUpperCase()"
+          class="p-inputtext-sm" [ngClass]="{'ng-invalid': form.controls.ticker.invalid && form.controls.ticker.touched } "
+          (blur)="blurAtivo()" > -->
+        <label for="ticker">Ativo</label>
+      </span>
+    </div>
+
+      </div>
+    </div>
+
+    <!--
+  card com informações
+  colocaar a tag de FII <<
+  preço médio
+  -->
+
+
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <p-inputNumber class="p-inputtext-sm" id="quantidade" formControlName="quantidade" mode="decimal"  [maxFractionDigits]="9"
+        (onBlur)="calcularTaxasNormais()"></p-inputNumber>
+        <label for="quantidade">Quantidade</label>
+      </span>
+    </div>
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <p-inputNumber class="p-inputtext-sm" id="valor" formControlName="valor" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="9"
+          (onBlur)="calcularTaxasNormais()"></p-inputNumber>
+        <label for="valor">Valor</label>
+      </span>
+
+    </div>
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <p-inputNumber class="p-inputtext-sm" id="emoluentos" formControlName="emoluentos" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="9"
+            (onBlur)="onBlurTaxas()"></p-inputNumber>
+        <label for="emoluentos">Emolumentos</label>
+      </span>
+    </div>
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <p-inputNumber class="p-inputtext-sm" id="liquidacao" formControlName="liquidacao" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="9"
+            (onBlur)="onBlurTaxas()"></p-inputNumber>
+        <label for="liquidacao">Liquidação</label>
+      </span>
+    </div>
+    <div class="field mt-4">
+      <span class="p-float-label">
+        <p-chips formControlName="tags" [addOnTab]="true" [addOnBlur]="true" (keydown)="onKeyDownChips($event)" ></p-chips>
+        <label for="liquidacao">Tags</label>
+      </span>
+    </div>
+
+
+    <p-card *ngIf="precoAtual" class="col-6">
+      <div *ngIf="precoMedio" >
+        Preço médio:  {{ precoMedio | currency:'BRL':'':'1.2-2' }}
+      </div>
+      <div *ngIf="precoAtual" >
+        Preço atual: {{ precoAtual | currency:'BRL':'':'1.2-2' }}
+      </div>
+      <div *ngIf="precoTotal">
+        Total: <strong> {{ precoTotal | currency:'BRL':'':'1.2-2' }} </strong>
+      </div>
+    </p-card>
+
+    <button type="submit" pButton pRipple>Salvar</button>
+</form>
+
+<a routerLink="/importar-ordens">Importar ordens</a>

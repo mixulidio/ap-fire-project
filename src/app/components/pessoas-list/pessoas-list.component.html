@@ -1,0 +1,24 @@
+<p-table [value]="list" selectionMode="single" [(selection)]="selectedProduct1">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr (click)="showDialog(item)"  >
+            <td *ngFor="let col of cols">
+                {{item[col.field] }}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+<p-dialog [(visible)]="display"  [style]="{width: '35rem'}" [modal]="true" [showHeader]="false">
+    <app-pessoa-form *ngIf="display" [pessoa]="selectedProduct1" (event)="closeDialog()"></app-pessoa-form>
+    <ng-template pTemplate="footer">
+        //buttons
+    </ng-template>
+</p-dialog>

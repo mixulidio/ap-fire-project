@@ -1,0 +1,41 @@
+:host {
+  ::ng-deep .p-selectbutton {
+
+    ::ng-deep .p-button {
+      color: black;
+      background: #ffffff;
+      border: 1px solid #ffffff;
+      padding: 0.3rem;
+      padding-right: 0.45rem;
+      font-size: 1rem;
+      transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+      border-radius: 0px;
+    }
+
+    ::ng-deep .p-button.p-highlight {
+      border-color: #4e555b;
+
+      border-bottom: 2px solid black;
+      border-width: 0 0 2px 0;
+    }
+
+  }
+  ::ng-deep .p-chips .p-chips-multiple-container {
+    padding: 0.25rem 0.75rem;
+    width: 24rem;
+  }
+}
+
+.dt-base {
+  text-align: right; /* alinha o conteúdo à direita */
+  font-size: 0.8rem; /* define o tamanho da fonte */
+}
+
+.links-container {
+  white-space: nowrap; /* Impede a quebra de linha */
+}
+
+.links-container div {
+  display: inline-block; /* Exibe os elementos lado a lado */
+  margin-right: 10px; /* Adiciona uma margem à direita para separar os elementos */
+}
