@@ -1,6 +1,6 @@
 import { Operacao, Ordem } from "src/app/models/ordem.model";
 
-export function calculaMedia(ordens: Ordem[]): number {
+export function calculaMedia(ordens: Ordem[]): { precoMedio: number, somaTotal: number } {
   let somaQtd = 0
   let somaVal = 0
   let media = 0;
@@ -15,7 +15,8 @@ export function calculaMedia(ordens: Ordem[]): number {
     }
   })
   if (somaQtd == 0) {
-    return 0;
+    return { precoMedio: 0, somaTotal: 0}
   }
-  return somaVal / somaQtd
+  const precoMedio = somaVal / somaQtd
+  return { precoMedio, somaTotal: somaQtd}
 }

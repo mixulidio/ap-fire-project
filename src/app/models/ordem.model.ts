@@ -9,6 +9,7 @@ export interface Ordem {
   data: any,
   tags? : string[],
   precoMedio?: number,
+  quantidadeAtual?: number,
 }
 
 export enum Operacao {

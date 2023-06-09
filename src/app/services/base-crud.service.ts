@@ -18,8 +18,12 @@ export abstract class BaseCrudService<T> {
     return this.httpClient.get<T>(this.apiUrl + "/" + id);
   }
 
-  listar(): Observable<T[]> {
-    return this.httpClient.get<T[]>(this.apiUrl)
+  // listar(): Observable<T[]> {
+  //   return this.httpClient.get<T[]>(this.apiUrl)
+  // }
+
+  listar(id: string = ''): Observable<T[]> {
+    return this.httpClient.get<T[]>(`${this.apiUrl}/${id}`)
   }
 
   excluir(id: string): Observable<any> {

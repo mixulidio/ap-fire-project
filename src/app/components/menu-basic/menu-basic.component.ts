@@ -19,6 +19,7 @@ export class MenuBasicComponent implements OnInit, OnDestroy {
           {label: 'Listar',  routerLink:['ordem-list'] },
           {label: 'Tickers e Tags',  routerLink:['ticker-tag-list']},
           {label: 'Portfólio',  routerLink:['portfolio0']},
+          {label: 'Carteiras',  routerLink:['carteiras']},
       ];
   }
 

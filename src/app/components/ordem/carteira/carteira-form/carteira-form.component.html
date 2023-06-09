@@ -1,0 +1,13 @@
+<form autocomplete="off" [formGroup]="form" [style]="{width: '24rem'}" class="">
+
+  <div class="field mt-4">
+    <span class="p-float-label">
+      <input formControlName="nomeCarteira" id="nomeCarteira" type="text" pInputText>
+      <label for="nomeCarteira">Valor</label>
+    </span>
+
+  </div>
+
+  <!-- <button type="submit" pButton pRipple>Salvar</button> -->
+  <p-button (onClick)="handleClick()" styleClass="p-button-sm p-button-raised mr-2" label="Salvar" icon="pi pi-upload"></p-button>
+</form>

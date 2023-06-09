@@ -41,15 +41,15 @@ import { TickerTagListComponent } from './components/ordem/ticker-tag-list/ticke
 import { PessoaFormComponent } from './components/pessoa-form/pessoa-form.component';
 import { PessoasListComponent } from './components/pessoas-list/pessoas-list.component';
 import { PessoasComponent } from './components/pessoas/pessoas.component';
+import { Tab01Component } from './components/teste-com-tabs-objto/tabs1/tab01/tab01.component';
 import { Tabs1Component } from './components/teste-com-tabs-objto/tabs1/tabs1.component';
+import { Tab2EnderecoComponent } from './components/teste-com-tabs-objto/tabs2/tab2-endereco/tab2-endereco.component';
+import { Tab2PessoaComponent } from './components/teste-com-tabs-objto/tabs2/tab2-pessoa/tab2-pessoa.component';
+import { Tabs2Component } from './components/teste-com-tabs-objto/tabs2/tabs2.component';
+import { TwoWayBaseTabComponent } from './components/teste-com-tabs-objto/tabs2/two-way-base-tab/two-way-base-tab.component';
 import { EnumToDescPipe } from './pipes/enum-to-desc.pipe';
 import { BrapiApiService } from './services/brapi.api.service';
 import { BrapiStore } from './services/brapi.api.store';
-import { Tab01Component } from './components/teste-com-tabs-objto/tabs1/tab01/tab01.component';
-import { Tabs2Component } from './components/teste-com-tabs-objto/tabs2/tabs2.component';
-import { Tab2PessoaComponent } from './components/teste-com-tabs-objto/tabs2/tab2-pessoa/tab2-pessoa.component';
-import { Tab2EnderecoComponent } from './components/teste-com-tabs-objto/tabs2/tab2-endereco/tab2-endereco.component';
-import { TwoWayBaseTabComponent } from './components/teste-com-tabs-objto/tabs2/two-way-base-tab/two-way-base-tab.component';
 
 registerLocaleData(ptBr);
 
@@ -101,6 +101,7 @@ registerLocaleData(ptBr);
     ConfirmDialogModule,
     ProgressBarModule,
     TabViewModule,
+   // CarteiraModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },

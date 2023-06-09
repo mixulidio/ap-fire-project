@@ -1,0 +1,29 @@
+<form autocomplete="off" [formGroup]="form" [style]="{width: '24rem'}" class="">
+
+  <div class="field mt-4">
+    <span class="p-float-label">
+
+      <p-dropdown [options]="obj?.tickersList" formControlName="idTicker" optionLabel="nome" optionValue="_id"
+        [filter]="true" filterBy="nome" [showClear]="true" placeholder="Selecione"
+        appendTo="body">
+        <label for="idTicker">Selecione um ativo</label>
+      </p-dropdown>
+
+    </span>
+  </div>
+  <div class="field mt-4">
+    <span class="p-float-label">
+      <input formControlName="peso" id="peso" type="text" pInputText>
+      <label for="peso">Peso</label>
+    </span>
+  </div>
+  <div class="field mt-4">
+    <span class="p-float-label">
+      <input formControlName="precoTeto" id="precoTeto" type="text" pInputText>
+      <label for="precoTeto">Preço teto</label>
+    </span>
+  </div>
+
+  <p-button (onClick)="handleClick()" styleClass="p-button-sm p-button-raised mr-2" label="Salvar"
+    icon="pi pi-upload"></p-button>
+</form>

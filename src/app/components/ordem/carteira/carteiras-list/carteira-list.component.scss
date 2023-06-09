@@ -1,0 +1,12 @@
+a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit; /* Herda a cor do texto do elemento pai */
+}
+
+a:hover {
+  text-decoration: none; /* Remove o sublinhado ao passar o mouse */
+}
+
+a:visited {
+  color: inherit; /* Herda a cor do texto do elemento pai para links visitados */
+}

@@ -114,6 +114,24 @@ export class OrdemFormComponent implements OnInit, OnDestroy {
     return obj;
   }
 
+  recalculaPrecoMedioTodaBase() {
+    //TODO Mover para o back
+    this.tickerTagService.listar().subscribe(a =>{
+      a.forEach(tk => {
+        var media : number = 0
+        this.ordemService.listarPorTicket(tk.nome).subscribe(o =>{
+          const calc = calculaMedia(o)
+          tk.precoMedio = calc.precoMedio
+          tk.quantidadeAtual = calc.somaTotal
+          this.tickerTagService.atualizaOuIncluiSimples(tk).subscribe(b => {
+            console.log(b, 'ok');
+          })
+        })
+      })
+    })
+
+  }
+
   submeter() {
     if (this.form.valid) {
       const obj: Ordem = this.getDadosForm();
@@ -125,7 +143,10 @@ export class OrdemFormComponent implements OnInit, OnDestroy {
         } else {
           o.push(obj)
         }
-        media = calculaMedia(o)
+        const calc = calculaMedia(o)
+        media = calc.precoMedio
+        const quantidadeAtual = calc.somaTotal
+        obj.quantidadeAtual = quantidadeAtual
         if (media && media > 0) {
           this.form.controls.precoMedio.setValue(media)
           obj.precoMedio = media

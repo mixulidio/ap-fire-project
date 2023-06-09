@@ -97,16 +97,18 @@ export class ImportarOrdensComponent implements OnInit {
       }, []);
 
       tickersUnicos.forEach(tk => {
-
         var media : number = 0
         this.ordemService.listarPorTicket(tk).subscribe(o =>{
-          media = calculaMedia(o)
+          const calc = calculaMedia(o)
+          media = calc.precoMedio
+          const quantidadeAtual = calc.somaTotal
           console.log(media,"media listarPorTicket");
           if(media && media > 0){
             // alterar ou inclui tickerTag
             const ticTag: TickerTag = {
               nome: tk,
-              precoMedio: media
+              precoMedio: media,
+              quantidadeAtual
             }
             this.tickerTagService.atualizaOuIncluiSimples(ticTag).subscribe(b => {
               console.log(b, 'atualizaOuIncluiSimples');

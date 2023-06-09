@@ -73,6 +73,7 @@ export class OrdemListComponent implements OnInit, OnDestroy{
       }
   });
   }
+
   excluirOrdemConfirm(){
     const id = this.selected._id;
     if(id){
@@ -89,14 +90,16 @@ export class OrdemListComponent implements OnInit, OnDestroy{
           // refaz o precoMedio
           var media : number = 0
           this.ordemService.listarPorTicket(this.selected.ticker).subscribe(o =>{
-            media = calculaMedia(o)
-            console.log(media);
+            const calc = calculaMedia(o)
+            media = calc.precoMedio
+            const quantidadeAtual = calc.somaTotal
             // if(media && media > 0){
               this.tickerTagService.consultaPorTicker(this.selected.ticker).subscribe(c =>{
                 if(c?._id){
                   c.precoMedio = media
+                  c.quantidadeAtual = quantidadeAtual
                   this.tickerTagService.atualizar(c._id, c).subscribe(d=>{
-                    console.log(media,"media");
+                    console.log(d,"media");
                   })
                 }
                 this.selected = null

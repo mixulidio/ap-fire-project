@@ -17,7 +17,7 @@ export class BrapiApiService {
     private store: BrapiStore,
     ) { }
 
-    obterDados(tickers: string[], params: ParamsBrapi): Observable<BrapiModel> {
+  obterDados(tickers: string[], params: ParamsBrapi): Observable<BrapiModel> {
     return this.http
       .get<BrapiModel>(`${this.urlApi}/quote/${tickers.toString()}`, { params: { ...params }})
   }

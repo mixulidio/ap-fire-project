@@ -18,9 +18,9 @@ export class TickerTagService extends BaseCrudService<TickerTag>{
     return this.httpClient.get<TickerTag>(this.apiUrl + "/busca?ticker=" + ticker)
   }
 
-  listarTags(ticker: string): Observable<TickerTag> {
-    return this.httpClient.get<TickerTag>(this.apiUrl + "/listar-tags")
-  }
+  // listarTags(ticker: string): Observable<TickerTag> {
+  //   return this.httpClient.get<TickerTag>(this.apiUrl + "/listar-tags")
+  // }
 
   atualizaOuIncluiSimples(ticker: TickerTag): Observable<TickerTag> {
     return this.httpClient.post<TickerTag>(this.apiUrl + "/atualizaOuIncluiSimples", ticker)
